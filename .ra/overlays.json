@@ -1,0 +1,41 @@
+{
+  "scanned_at": "2026-11-17T09:27:48.458Z",
+  "plugins": [
+    {
+      "name": "example-lint-extra",
+      "version": "0.1.0",
+      "path": ".ra/plugins/example-lint-extra",
+      "manifest": {
+        "name": "example-lint-extra",
+        "version": "0.1.0",
+        "description": "Example Ra overlay. Extends the review stage with an additional lint pass that surfaces TODO/FIXME comments as warn-level issues.",
+        "author": "Ra contributors",
+        "extends": [
+          "review"
+        ],
+        "provides": [
+          {
+            "stage": "review",
+            "asset": "agent",
+            "path": "agents/lint-extra-reviewer.md",
+            "action": "extend"
+          }
+        ],
+        "on_fail": "skip"
+      }
+    }
+  ],
+  "by_stage": {
+    "review": [
+      {
+        "plugin": "example-lint-extra",
+        "action": "extend",
+        "asset": "agent",
+        "stage": "review",
+        "gating": false,
+        "path": ".ra/plugins/example-lint-extra/agents/lint-extra-reviewer.md"
+      }
+    ]
+  },
+  "errors": []
+}
